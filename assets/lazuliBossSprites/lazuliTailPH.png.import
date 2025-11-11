@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d5mf3uold5yf"
-path="res://.godot/imported/lazuliTail.png-40696b88118673afc63e31b9a8ef2ce7.ctex"
+path="res://.godot/imported/lazuliTailPH.png-5483855355bce9091d78a9ecadbca5dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lazuliBoss/lazuliTail.png"
-dest_files=["res://.godot/imported/lazuliTail.png-40696b88118673afc63e31b9a8ef2ce7.ctex"]
+source_file="res://assets/lazuliBossSprites/lazuliTailPH.png"
+dest_files=["res://.godot/imported/lazuliTailPH.png-5483855355bce9091d78a9ecadbca5dc.ctex"]
 
 [params]
 

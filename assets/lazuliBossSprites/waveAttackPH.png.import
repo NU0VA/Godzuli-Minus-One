@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb6yvjahpcafr"
-path="res://.godot/imported/lazuliLH.png-46707814b5cd6180afe1f188641f1f9f.ctex"
+uid="uid://co2focgkg60oj"
+path="res://.godot/imported/waveAttackPH.png-2b4c7be118020e204a4850bc02465145.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lazuliBoss/lazuliLH.png"
-dest_files=["res://.godot/imported/lazuliLH.png-46707814b5cd6180afe1f188641f1f9f.ctex"]
+source_file="res://assets/lazuliBossSprites/waveAttackPH.png"
+dest_files=["res://.godot/imported/waveAttackPH.png-2b4c7be118020e204a4850bc02465145.ctex"]
 
 [params]
 

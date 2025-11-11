@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b47ymp26tl7gw"
-path="res://.godot/imported/lazuliHead.png-98125a7dc7ec1151db873a1b4cb28f29.ctex"
+uid="uid://tcr4ra00mn28"
+path="res://.godot/imported/lazuliRHPH.png-a9c70e0184f75f9563aa78b6e696756d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lazuliBoss/lazuliHead.png"
-dest_files=["res://.godot/imported/lazuliHead.png-98125a7dc7ec1151db873a1b4cb28f29.ctex"]
+source_file="res://assets/lazuliBossSprites/lazuliRHPH.png"
+dest_files=["res://.godot/imported/lazuliRHPH.png-a9c70e0184f75f9563aa78b6e696756d.ctex"]
 
 [params]
 
