@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://b8n5msskfp6s1"]
+[gd_scene load_steps=2 format=3 uid="uid://b8n5msskfp6s1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8cj0n"]
+load_path = "res://.godot/imported/boatPH.jpg-576faaca434276740ba135dc6d0014a1.ctex"
 
 [node name="Game" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = SubResource("CompressedTexture2D_8cj0n")
