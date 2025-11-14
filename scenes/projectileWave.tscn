@@ -1,18 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://crv8wdgjad50t"]
+[gd_scene load_steps=5 format=3 uid="uid://crv8wdgjad50t"]
 
 [ext_resource type="Script" uid="uid://dbys0fcthrneh" path="res://scripts/projectile_wave.gd" id="1_bkucg"]
 [ext_resource type="Texture2D" uid="uid://co2focgkg60oj" path="res://assets/lazuliBossSprites/waveAttackPH.png" id="1_h18u4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkucg"]
-size = Vector2(186, 175)
+[sub_resource type="GDScript" id="GDScript_h18u4"]
+script/source = "extends Area2D
+"
 
-[node name="ProjectileWave" type="CharacterBody2D"]
-scale = Vector2(2, 2)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h18u4"]
+size = Vector2(155, 88)
+
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_bkucg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_h18u4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -5)
-shape = SubResource("RectangleShape2D_bkucg")
+[node name="Hurtbox" type="Area2D" parent="Sprite2D"]
+script = SubResource("GDScript_h18u4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hurtbox"]
+position = Vector2(1.5, 24)
+shape = SubResource("RectangleShape2D_h18u4")
+
+[connection signal="body_entered" from="Sprite2D/Hurtbox" to="Sprite2D/Hurtbox" method="_on_body_entered"]

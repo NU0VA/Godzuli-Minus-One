@@ -1,13 +1,11 @@
-extends CharacterBody2D
+extends Node2D
+#REMEMBER TO CHANGE SPEED BACK TO A HIGHER NUMBER AFTER TESTING
+@export var SPEED = 1
 
-@export var SPEED = 100
+#var spawnPos : Vector2
 
-var dir : float
-var spawnPos : Vector2
-
-func _ready():
-	global_position = spawnPos
+#func _ready():
+	#global_position = spawnPos
 	
 func _physics_process(delta):
-	velocity = Vector2(0,-SPEED).rotated(dir)
-	move_and_slide()
+	position.x += SPEED * delta

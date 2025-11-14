@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://butvaprfkrr2l"]
+[gd_scene load_steps=9 format=3 uid="uid://butvaprfkrr2l"]
 
+[ext_resource type="Texture2D" uid="uid://dg41hm4jlamh1" path="res://assets/skyBGPH.png" id="1_iywne"]
+[ext_resource type="Texture2D" uid="uid://bb44dpth2oyo3" path="res://assets/waterBGPH.png" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://btu22x7kntg8q" path="res://scenes/lazuliBoss.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://6tje4cjfyj0f" path="res://scenes/player.tscn" id="2_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://bgl8qfrjgi5ad" path="res://assets/waterBGPH.jpg" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://crv8wdgjad50t" path="res://scenes/projectileWave.tscn" id="4_lbhrr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
@@ -20,39 +21,51 @@ y_sort_enabled = true
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
-[node name="ArenaBG" type="Sprite2D" parent="."]
+[node name="Backgrounds" type="Node2D" parent="."]
+
+[node name="SkyBG" type="Sprite2D" parent="Backgrounds"]
 z_index = -1
-position = Vector2(1.0001416, 438.5)
-scale = Vector2(11.888545, 8.211538)
-texture = ExtResource("3_lnu2h")
+position = Vector2(1, -586.82025)
+scale = Vector2(3, 3)
+texture = ExtResource("1_iywne")
+
+[node name="SeaBG" type="Sprite2D" parent="Backgrounds"]
+z_index = -1
+position = Vector2(0.9998255, 438.5)
+scale = Vector2(2.0010417, 1.559509)
+texture = ExtResource("1_lbhrr")
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 position = Vector2(-27, -581)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+z_index = 2
 position = Vector2(27, 378)
 shape = SubResource("WorldBoundaryShape2D_yqjtg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
+z_index = 2
 position = Vector2(27, 1661)
 rotation = -3.1415927
 shape = SubResource("WorldBoundaryShape2D_yqjtg")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder"]
+z_index = 2
 position = Vector2(1947, 581)
 rotation = -3.1415925
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorder"]
+z_index = 2
 position = Vector2(-1893, 581)
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
 [node name="LazuliBoss" parent="." instance=ExtResource("1_yqjtg")]
-position = Vector2(-971.99994, 477.00003)
+position = Vector2(-1449.9999, 606)
 scale = Vector2(1.7, 1.7)
 
-[node name="Player" parent="." instance=ExtResource("2_lnu2h")]
-position = Vector2(41, 292)
-
 [node name="ProjectileWave" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(-1102, 858)
+position = Vector2(6, 563)
+
+[node name="Player" parent="." instance=ExtResource("2_lnu2h")]
+position = Vector2(0, 445)

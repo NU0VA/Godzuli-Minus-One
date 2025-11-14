@@ -1,17 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://btu22x7kntg8q"]
+[gd_scene load_steps=5 format=3 uid="uid://btu22x7kntg8q"]
 
-[ext_resource type="Script" uid="uid://cuwuvbmr3503t" path="res://scripts/lazuli_boss.gd" id="1_queqg"]
 [ext_resource type="Texture2D" uid="uid://d5mf3uold5yf" path="res://assets/lazuliBossSprites/lazuliTailPH.png" id="1_vr64d"]
 [ext_resource type="Texture2D" uid="uid://cb6yvjahpcafr" path="res://assets/lazuliBossSprites/lazuliLHPH.png" id="2_queqg"]
 [ext_resource type="Texture2D" uid="uid://b47ymp26tl7gw" path="res://assets/lazuliBossSprites/lazuliHeadPH.png" id="3_47si1"]
 [ext_resource type="Texture2D" uid="uid://tcr4ra00mn28" path="res://assets/lazuliBossSprites/lazuliRHPH.png" id="4_ydnxo"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vr64d"]
-radius = 143.28294
-
-[node name="CharacterBody2D" type="CharacterBody2D"]
-y_sort_enabled = true
-script = ExtResource("1_queqg")
+[node name="Node2D" type="Node2D"]
 
 [node name="LHand" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -35,9 +29,3 @@ y_sort_enabled = true
 position = Vector2(266, 126)
 texture = ExtResource("4_ydnxo")
 offset = Vector2(0, -60)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_as_relative = false
-position = Vector2(8, -131)
-shape = SubResource("CircleShape2D_vr64d")
-disabled = true

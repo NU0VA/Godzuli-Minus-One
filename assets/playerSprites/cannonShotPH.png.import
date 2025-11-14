@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beqcdcakgkd5e"
-path="res://.godot/imported/mainMenu.png-c76b813f9cb8855e75f0f5c90f171d2c.ctex"
+uid="uid://62sg26cl1jif"
+path="res://.godot/imported/cannonShotPH.png-27fccda17ac19ca951d41bdf84cb380b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mainMenu.png"
-dest_files=["res://.godot/imported/mainMenu.png-c76b813f9cb8855e75f0f5c90f171d2c.ctex"]
+source_file="res://assets/playerSprites/cannonShotPH.png"
+dest_files=["res://.godot/imported/cannonShotPH.png-27fccda17ac19ca951d41bdf84cb380b.ctex"]
 
 [params]
 
