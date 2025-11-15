@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://crblpdqhrxoth" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(296.5, 149.75)
+size = Vector2(171.75, 84.875)
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -98,18 +98,18 @@ hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-scale = Vector2(1.7, 1.7)
 texture = ExtResource("1_3vyb7")
 offset = Vector2(0, -100)
 
 [node name="PhysCol" type="CollisionShape2D" parent="."]
-position = Vector2(-5.75, -65.125)
+position = Vector2(-12, -48.5625)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-5.75, -65.125)
+position = Vector2(-11.374996, -49)
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
