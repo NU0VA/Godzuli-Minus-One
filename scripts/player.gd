@@ -65,6 +65,14 @@ func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_in
 		#hitbox.set_deferred("monitoring", false)
 		print("end hit")
 
+#player takes damage from debris
+	if area.is_in_group("debris"):
+		health -= 1
+		print(health)
+		print("hit")
+		print("end hit")
+
+
 #func shoot(): called when pressing a button to shoot
 func shoot():
 	cannon_shot.emit(cannon_scene, cannon.global_position)

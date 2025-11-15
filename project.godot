@@ -24,6 +24,7 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 player="This is the main character"
+debris="This is debris spawning in"
 
 [input]
 
