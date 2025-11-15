@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://eubch12pikqv"]
+
+[ext_resource type="Texture2D" uid="uid://62sg26cl1jif" path="res://assets/playerSprites/cannonShotPH.png" id="1_1r3nv"]
+[ext_resource type="Script" uid="uid://bcumg7vr34wtb" path="res://scripts/cannon_shot.gd" id="1_j7fcl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7fcl"]
+radius = 30.016663
+
+[node name="cannonShot" type="Area2D"]
+script = ExtResource("1_j7fcl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1r3nv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 11)
+shape = SubResource("CircleShape2D_j7fcl")

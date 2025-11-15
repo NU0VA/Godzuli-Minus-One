@@ -1,11 +1,21 @@
 extends CharacterBody2D
 
+signal cannon_shot(cannon_scene, location)
+
 @export var speed : float = 1200
 @export var friction : float = 1
 @export var acceleration : float = 0.3
 @export var health : int = 3
 @export var animator: AnimationPlayer
 @export var hitbox: Area2D
+@export var rate_of_fire = 1.5
+
+@onready var cannon = $Cannon
+
+var cannon_scene = preload("res://scenes/cannonshot.tscn")
+
+var shoot_cd := false
+
 #@onready var animator = get_node("AnimationPlayer")
 #@onready var hitbox = get_node("Hitbox")
 
@@ -31,6 +41,17 @@ func _physics_process(_delta):
 		velocity = velocity.lerp(Vector2.ZERO, friction)
 	move_and_slide()
 
+#This is supposed to shoot the cannon shot
+	if Input.is_action_pressed("shoot"):
+		if !shoot_cd:
+			shoot_cd = true
+			shoot()
+			await get_tree().create_timer(rate_of_fire).timeout
+			shoot_cd = false
+
+#makes sure we stay inside game area
+	global_position = global_position.clamp(Vector2.ZERO, get_viewport_rect().size)
+
 #If player enters a hurtbox - 1 hp and play animation
 func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if area.name == "Hurtbox":
@@ -43,3 +64,7 @@ func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_in
 		#await get_tree().create_timer(2.0).timeout
 		#hitbox.set_deferred("monitoring", false)
 		print("end hit")
+
+#func shoot(): called when pressing a button to shoot
+func shoot():
+	cannon_shot.emit(cannon_scene, cannon.global_position)

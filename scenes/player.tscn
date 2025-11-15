@@ -91,7 +91,7 @@ _data = {
 &"playerHitAnim": SubResource("Animation_g2els")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animator", "hitbox")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animator", "hitbox") groups=["player"]]
 script = ExtResource("1_g2els")
 animator = NodePath("AnimationPlayer")
 hitbox = NodePath("Hitbox")
@@ -118,6 +118,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_dqkch")
 }
 playback_auto_capture = false
+
+[node name="Cannon" type="Marker2D" parent="."]
+position = Vector2(-109, -77)
 
 [connection signal="area_shape_entered" from="Hitbox" to="." method="_on_area_2d_area_shape_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
