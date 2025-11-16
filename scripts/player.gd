@@ -9,8 +9,9 @@ signal cannon_shot(cannon_scene, location)
 @export var animator: AnimationPlayer
 @export var hitbox: Area2D
 @export var rate_of_fire = 1.5
-
 @onready var cannon = $Cannon
+const whiten_duration = 0.15
+@export var whiten_material : ShaderMaterial
 
 var cannon_scene = preload("res://scenes/cannonshot.tscn")
 
@@ -59,18 +60,15 @@ func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_in
 		print(health)
 		print("hit")
 		animator.play("playerHitAnim")
-		#Dude I have 0 fucking clue why it won't disable the hitbox for this thing I just want to give the player i-frames bro :sob:
-		#hitbox.set_deferred("monitoring", true)
-		#await get_tree().create_timer(2.0).timeout
-		#hitbox.set_deferred("monitoring", false)
-		print("end hit")
+		#whiten_material.set_deferred("whiten", true)
+		#await get_tree().create_timer(whiten_duration).timeout
+		#whiten_material.set_deferred("whiten", false)
 
 #player takes damage from debris
 	if area.is_in_group("debris"):
 		health -= 1
 		print(health)
-		print("hit")
-		print("end hit")
+		animator.play("playerHitAnim")
 
 
 #func shoot(): called when pressing a button to shoot
