@@ -11,12 +11,15 @@ script/source = "extends Area2D
 size = Vector2(89, 75)
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_bkucg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_h18u4")
+offset = Vector2(0, -63.31)
 
 [node name="Hurtbox" type="Area2D" parent="Sprite2D"]
+position = Vector2(7, -58)
 script = SubResource("GDScript_h18u4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hurtbox"]

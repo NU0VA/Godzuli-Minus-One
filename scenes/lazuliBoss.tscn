@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://tcr4ra00mn28" path="res://assets/lazuliBossSprites/lazuliRHPH.png" id="4_ydnxo"]
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 
 [node name="LHand" type="Sprite2D" parent="."]
 y_sort_enabled = true

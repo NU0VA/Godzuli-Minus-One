@@ -3,21 +3,28 @@
 [ext_resource type="Script" uid="uid://c2oi5cf8jkcao" path="res://scripts/mine.gd" id="1_yym1a"]
 [ext_resource type="Texture2D" uid="uid://cujse3u8ia53i" path="res://assets/obstaclesSprites/minePH.png" id="2_m55k0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4qwv"]
-size = Vector2(58.5, 30)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yym1a"]
+size = Vector2(56, 28)
 
-[node name="Mine" type="Area2D"]
+[node name="Mine" type="CharacterBody2D"]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_yym1a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_m55k0")
+offset = Vector2(0, -20.98)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6.25, 9)
-shape = SubResource("RectangleShape2D_j4qwv")
+[node name="Area2D" type="Area2D" parent="Sprite2D" groups=["debris"]]
+position = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(6, 9)
+shape = SubResource("RectangleShape2D_yym1a")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(98, 1)
+position = Vector2(98, -22)
 rect = Rect2(-14, -28, 62, 59)
 
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

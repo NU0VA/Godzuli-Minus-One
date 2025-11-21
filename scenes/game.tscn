@@ -19,6 +19,7 @@ script = ExtResource("1_p57ef")
 debris_scenes = Array[PackedScene]([ExtResource("2_u5sy4"), ExtResource("3_gee14")])
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -1
 repeat_size = Vector2(1920, 0)
 autoscroll = Vector2(-100, 0)
 
@@ -50,6 +51,8 @@ position = Vector2(942, 701)
 position = Vector2(1489, 699)
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(964, 616)
 
 [node name="DebrisSpawnTimer" type="Timer" parent="."]

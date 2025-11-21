@@ -14,11 +14,20 @@ const whiten_duration = 0.15
 @export var whiten_material : ShaderMaterial
 
 var cannon_scene = preload("res://scenes/cannonshot.tscn")
+var hearts_list : Array[TextureRect]
 
 var shoot_cd := false
 
 #@onready var animator = get_node("AnimationPlayer")
 #@onready var hitbox = get_node("Hitbox")
+
+func _ready() -> void:
+#Displays hearts on screen for health
+	var hearts_parent = $health_bar/HBoxContainer
+	for child in hearts_parent.get_children():
+		hearts_list.append(child)
+	hearts_parent.global_position = Vector2(1620,55)
+	print(hearts_list)
 
 #player inputs wasd/arrows
 func get_input():
@@ -57,6 +66,7 @@ func _physics_process(_delta):
 func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if area.name == "Hurtbox":
 		health -= 1
+		update_heart_display()
 		print(health)
 		print("hit")
 		animator.play("playerHitAnim")
@@ -67,9 +77,13 @@ func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_in
 #player takes damage from debris
 	if area.is_in_group("debris"):
 		health -= 1
-		print(health)
+		update_heart_display()
 		animator.play("playerHitAnim")
 
+#updates how many hearts are on display
+func update_heart_display():
+	for i in range(hearts_list.size()):
+		hearts_list[i].visible = i < health
 
 #func shoot(): called when pressing a button to shoot
 func shoot():
