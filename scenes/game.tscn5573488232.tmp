@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://butvaprfkrr2l"]
+
+[ext_resource type="Texture2D" uid="uid://dg41hm4jlamh1" path="res://assets/skyBGPH.png" id="1_iywne"]
+[ext_resource type="Texture2D" uid="uid://bb44dpth2oyo3" path="res://assets/waterBGPH.png" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://daokhbxbe0rqf" path="res://scripts/game.gd" id="1_p57ef"]
+[ext_resource type="PackedScene" uid="uid://btu22x7kntg8q" path="res://scenes/lazuliBoss.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://6tje4cjfyj0f" path="res://scenes/player.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cv6cmsdiyolg1" path="res://scenes/debris.tscn" id="2_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://qiy6i1f6folf" path="res://scenes/mine.tscn" id="3_gee14"]
+[ext_resource type="PackedScene" uid="uid://crv8wdgjad50t" path="res://scenes/projectileWave.tscn" id="4_lbhrr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
+normal = Vector2(0, 1)
+distance = 229.0
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_p57ef")
+debris_scenes = Array[PackedScene]([ExtResource("2_u5sy4"), ExtResource("3_gee14")])
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -1
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-100, 0)
+
+[node name="SkyBG" type="Sprite2D" parent="Parallax2D"]
+z_index = -1
+position = Vector2(961, 162)
+texture = ExtResource("1_iywne")
+
+[node name="SeaBG" type="Sprite2D" parent="Parallax2D"]
+z_index = -1
+position = Vector2(962, 670)
+texture = ExtResource("1_lbhrr")
+
+[node name="TopBorder" type="StaticBody2D" parent="."]
+position = Vector2(-27, -581)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorder"]
+z_index = 2
+position = Vector2(27, 570)
+shape = SubResource("WorldBoundaryShape2D_yqjtg")
+
+[node name="LazuliBoss" parent="." instance=ExtResource("1_yqjtg")]
+position = Vector2(240, 754)
+playerNodePath = NodePath("../Player")
+
+[node name="ProjectileWave" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(942, 701)
+
+[node name="Player" parent="." instance=ExtResource("2_lnu2h")]
+position = Vector2(1489, 699)
+
+[node name="PlayerSpawnPos" type="Marker2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(964, 616)
+
+[node name="DebrisSpawnTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="CannonBallContainer" type="Node" parent="."]
+
+[node name="DebrisContainer" type="Node" parent="."]
+
+[connection signal="timeout" from="DebrisSpawnTimer" to="." method="_on_debris_spawn_timer_timeout"]

@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://btu22x7kntg8q"]
+[gd_scene load_steps=6 format=3 uid="uid://btu22x7kntg8q"]
 
 [ext_resource type="Script" uid="uid://dk0f1blekorgm" path="res://scripts/lazuli_boss.gd" id="1_queqg"]
 [ext_resource type="Texture2D" uid="uid://d5mf3uold5yf" path="res://assets/lazuliBossSprites/lazuliTailPH.png" id="1_vr64d"]
 [ext_resource type="Texture2D" uid="uid://cb6yvjahpcafr" path="res://assets/lazuliBossSprites/lazuliLHPH.png" id="2_queqg"]
 [ext_resource type="Texture2D" uid="uid://b47ymp26tl7gw" path="res://assets/lazuliBossSprites/lazuliHeadPH.png" id="3_47si1"]
 [ext_resource type="Texture2D" uid="uid://tcr4ra00mn28" path="res://assets/lazuliBossSprites/lazuliRHPH.png" id="4_ydnxo"]
-[ext_resource type="Script" uid="uid://cp2wgdq8wc3h6" path="res://scripts/state_machine.gd" id="6_47si1"]
-[ext_resource type="Script" uid="uid://wq8ybwedgte1" path="res://scripts/enemy_idle.gd" id="7_kaajx"]
-[ext_resource type="Script" uid="uid://d0wiphiwmcnse" path="res://scripts/enemy_chase.gd" id="8_7e00b"]
 
 [node name="Lazuli" type="Node2D"]
 y_sort_enabled = true
@@ -36,14 +33,4 @@ position = Vector2(266, 126)
 texture = ExtResource("4_ydnxo")
 offset = Vector2(0, -60)
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("6_47si1")
-initial_state = NodePath("Chase")
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("7_kaajx")
-enemy = NodePath("../..")
-
-[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("8_7e00b")
-enemy = NodePath("../..")
+[node name="Node" type="Node" parent="."]
