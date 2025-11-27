@@ -2,24 +2,17 @@ extends State
 class_name EnemyChase
 
 @export var enemy: Node2D
-@export var speed = 2
-
+@export var speed = 5
+var player: CharacterBody2D
 var playerPos
-var startPos
-
 func Enter():
-	playerPos = get_tree().get_first_node_in_group("player").global_position
-	startPos = enemy.global_position
-#var playerPos
-
-
-func _process(_delta: float) -> void:
+	player = get_tree().get_first_node_in_group("player")
+	playerPos = player.global_position
 	
-	#dives towards player and attacks
-	#if Input.is_action_pressed("shoot"):
-	#	playerPos = get_node(playerNodePath).get_position()
-		
+func Physics_Update(_delta: float) -> void:
+	#swims towards player's last position and resets position after reaching destination
+	var direction = playerPos - enemy.global_position
 	enemy.global_position = enemy.global_position.move_toward(playerPos,speed)
-	if enemy.global_position == playerPos:
-			#enemy.global_position = startPos
-			Transitioned.emit(self, "idle")
+	
+	if direction.length() <= 50:
+		Transitioned.emit(self,"idle")
